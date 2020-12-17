@@ -1,6 +1,8 @@
 const cursor = document.querySelector("div.cursor")
 const canvasTag = document.querySelector("canvas.in")
 
+let isMouseDown = false
+
 // hold mouse down
 const growCursor = function() {
     cursor.classList.add("is-down")
@@ -40,26 +42,31 @@ const setupCanvas = function (canvas) {
 }
 
 // start to draw
-const startDraw = function (canvas) {
+const startDraw = function (canvas, x, y) {
     const context = canvas.getContext("2d")
-    context.fillStyle = "yellow"
+    context.moveTo(x, y)
 }
 
 // drawing based on canvas, x and y
 const moveDraw = function (canvas, x, y) {
     const context = canvas.getContext("2d")
-    context.lineTo(x, y)
-    context.stroke()
+
+    if (isMouseDown) {
+        context.lineTo(x, y)
+        context.stroke()
+    }
 }
 
 setupCanvas(canvasTag)
 
-document.addEventListener("mousedown", function() {
+document.addEventListener("mousedown", function(event) {
+    isMouseDown = true
     growCursor()
-    startDraw(canvasTag)
+    startDraw(canvasTag, event.pageX, event.pageY)
 })
 
 document.addEventListener("mouseup", function() {
+    isMouseDown = false
     shrinkCursor()
 })
 
