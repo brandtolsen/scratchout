@@ -26,13 +26,13 @@ div.pattern {
     background-color: #d4d4d4;
     background-image: url(img/pattern-mask.svg);
     background-position: center;
-    background-size: 169px auto;
+    background-size: 200px auto;
 }
 
 section.scratched-out {
     mix-blend-mode: darken;
 }
-div.lineup {
+div.intro {
     background-color: #475DA7;
     position: absolute;
     top: 0;
@@ -40,10 +40,21 @@ div.lineup {
     width: 100%;
     height: 100%;
 }
-div.lineup img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+div.intro h1 {
+    font-size: 66px;
+    line-height: normal;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20%;
+    margin-bottom: 2rem;
+}
+div.intro p {
+    font-size: 46px;
+    line-height: normal;
+    color: #ffffff;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto;
 }
 
 div.cursor {
