@@ -22,10 +22,8 @@ const moveCursor = function (x, y) {
 
 // setup canvas
 const setupCanvas = function (canvas) {
-    const bodyTag = document.querySelector("body")
-
     const w = window.innerWidth
-    const h = bodyTag.offsetHeight
+    const h = window.innerHeight
     const dpi = window.devicePixelRatio
 
     canvas.width = w * dpi
@@ -59,7 +57,9 @@ const setupCanvas = function (canvas) {
 // start to draw
 const startDraw = function (canvas, x, y) {
     const context = canvas.getContext("2d")
+
     context.moveTo(x, y)
+    context.beginPath()
 }
 
 // drawing based on canvas, x and y
